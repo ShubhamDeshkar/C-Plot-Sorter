@@ -28,4 +28,5 @@ for plot in gif_plots:
       if(not os.path.exists(day_folder_path)):
             os.makedirs(day_folder_path)
 
-      
+      # Moves the file into its proper directory
+      shutil.move(file_path, day_folder_path)
