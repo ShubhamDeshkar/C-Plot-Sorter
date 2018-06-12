@@ -18,4 +18,5 @@ for plot in gif_plots:
 
       # Convert date_name into datetime objects.
       date_time_object = datetime.datetime.strptime(date_name, '%Y%m%d').date()
-      print(date_time_object)
+      year_month_day = str(date_time_object).split('-')
+      
