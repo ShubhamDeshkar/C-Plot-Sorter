@@ -13,6 +13,7 @@ gif_plots = glob.glob('*.gif')
 
 for plot in gif_plots:
       filename = plot
+      plot_path = os.path.join(os.getcwd(), filename)
       plot = plot.split('-')
       date_name = plot[0]
 
@@ -20,7 +21,10 @@ for plot in gif_plots:
       date_time_object = datetime.datetime.strptime(date_name, '%Y%m%d').date()
       year_month_day = str(date_time_object).split('-')
 
-      year_folder_path  = os.path.join(os.getcwd(), year_month_day[0])
-      month_folder_path = os.path.join(os.getcwd(), year_month_day[0], year_month_day[1])
+      #year_folder_path  = os.path.join(os.getcwd(), year_month_day[0])
+      #month_folder_path = os.path.join(os.getcwd(), year_month_day[0], year_month_day[1])
       day_folder_path   = os.path.join(os.getcwd(), year_month_day[0], year_month_day[1], year_month_day[2])
-      print(day_folder_path)
+      #shutil.move()
+      print(plot_path)
+
+      
