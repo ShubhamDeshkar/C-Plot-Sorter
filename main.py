@@ -9,7 +9,6 @@ import datetime
 
 test_data_path = os.path.join(os.getcwd(), 'test-data')
 os.chdir(test_data_path)
-#gif_plots = glob.glob('*.gif')
 gif_plots = os.listdir(test_data_path)
 
 for plot in gif_plots:
