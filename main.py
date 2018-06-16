@@ -35,7 +35,7 @@ if __name__ == '__main__':
             # if file path is a file, proceed
             if(os.path.isfile(file_path)):
                   # check if the filename matches the pattern
-                  if(ismatch(filename)):
+                  if(ismatch(filename) == 'True'):
                         # split about '-'
                         plot = plot.split('-')
                         # save the first element (index=0)
