@@ -2,32 +2,39 @@ import os
 import glob
 import shutil
 import datetime
+import re
+
 
 
 # It is assumed that this code file resides just outside the test-data
 # folder.
 
-test_data_path = os.path.join(os.getcwd(), 'test-data')
-os.chdir(test_data_path)
-gif_plots = os.listdir(test_data_path)
+def ismatch(searchstring):
+      regex = re.compile('\d\d\d\d\d\d\d\d-\d\d\d\d\d\d')
 
-for plot in gif_plots:
-      filename = plot
-      file_path = os.path.join(os.getcwd(), filename)
-      if(os.path.isfile(file_path)):
-            plot = plot.split('-')
-            date_name = plot[0]
 
-            # Convert date_name into datetime objects.
-            date_time_object = datetime.datetime.strptime(date_name,
-                                                          '%Y%m%d').date()
-            year_month_day = str(date_time_object).split('-')
+if __name__ == '__main__':
+      test_data_path = os.path.join(os.getcwd(), 'test-data')
+      os.chdir(test_data_path)
+      gif_plots = os.listdir(test_data_path)
 
-            day_folder_path   = os.path.join(os.getcwd(), year_month_day[0],
-                                       year_month_day[1], year_month_day[2])
+      for plot in gif_plots:
+            filename = plot
+            file_path = os.path.join(os.getcwd(), filename)
+            if(os.path.isfile(file_path)):
+                  plot = plot.split('-')
+                  date_name = plot[0]
 
-            if(not os.path.exists(day_folder_path)):
-                  os.makedirs(day_folder_path)
+                  # Convert date_name into datetime objects.
+                  date_time_object = datetime.datetime.strptime(date_name,
+                                                                '%Y%m%d').date()
+                  year_month_day = str(date_time_object).split('-')
 
-            # Moves the file into its proper directory
-            shutil.move(file_path, day_folder_path)
+                  day_folder_path   = os.path.join(os.getcwd(), year_month_day[0],
+                                             year_month_day[1], year_month_day[2])
+
+                  if(not os.path.exists(day_folder_path)):
+                        os.makedirs(day_folder_path)
+
+                  # Moves the file into its proper directory
+                  shutil.move(file_path, day_folder_path)
