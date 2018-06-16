@@ -11,6 +11,10 @@ import re
 
 def ismatch(searchstring):
       regex = re.compile('\d\d\d\d\d\d\d\d-\d\d\d\d\d\d')
+      if(regex.search(searchstrting)):
+            return 'True'
+      else:
+            return 'False'
 
 
 if __name__ == '__main__':
